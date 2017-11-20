@@ -88,9 +88,9 @@ public class Xz {
                 new CheckboxMenuItem("Show About", true);
         showWindowMenu.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                if(showWindowMenu.getState()){
+                if (showWindowMenu.getState()) {
                     menuBar.add(aboutMenu);
-                }else{
+                } else {
                     menuBar.remove(aboutMenu);
                 }
             }

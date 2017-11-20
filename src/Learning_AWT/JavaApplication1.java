@@ -17,8 +17,10 @@ public class JavaApplication1 extends Frame {
 
         MenuBar menu_bar = new MenuBar();
         setMenuBar(menu_bar);
+//        MenuBar menu_bar1 = new MenuBar();
+//        setMenuBar(menu_bar1);
 
-//        FileDialog d = new FileDialog(this);//Frame
+        FileDialog d = new FileDialog(this);//Frame
 //        d.setDirectory("D:\\");
 //        d.setFile("*.txt;*.xml;*.log;*.exe");
 //        d.setVisible(true);
@@ -30,12 +32,21 @@ public class JavaApplication1 extends Frame {
         MenuItem openMenuItem = new MenuItem("Open");
         menuFile.add(openMenuItem);
         openMenuItem.setActionCommand("Open");
+        openMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                d.setDirectory("D:\\");
+                d.setFile("*.txt;*.xml;*.log;*.exe");
+                d.setVisible(true);
+                System.out.println(d.getDirectory() + d.getFile());
+            }
+        });
 
-        menuFile.add(new MenuItem("New", new MenuShortcut(KeyEvent.VK_CONTROL + KeyEvent.VK_N)));
+        menuFile.add(new MenuItem("New", new MenuShortcut(KeyEvent.VK_N)));
         //menuFile.add(new MenuItem("Open", new MenuShortcut(KeyEvent.VK_CONTROL + KeyEvent.VK_O)));
-        menuFile.add(new MenuItem("Save", new MenuShortcut(KeyEvent.VK_CONTROL + KeyEvent.VK_S)));
+        menuFile.add(new MenuItem("Save", new MenuShortcut(KeyEvent.VK_S)));
         menuFile.add(new MenuItem("Save all"));
-        menuFile.add(new MenuItem("Exit", new MenuShortcut(KeyEvent.VK_ALT + KeyEvent.VK_F4)));
+        menuFile.add(new MenuItem("Exit", new MenuShortcut(KeyEvent.VK_F4)));
 
         Menu file_menu1 = menu_bar.add(new Menu("Edit"));
         file_menu1.add(new MenuItem("Copy"));
@@ -64,7 +75,7 @@ public class JavaApplication1 extends Frame {
                 if (ke.getKeyCode() == KeyEvent.VK_F4 + KeyEvent.VK_ALT) {
                     dispose();
                 }
-                if(ke.getKeyCode() == KeyEvent.VK_CONTROL + KeyEvent.VK_N){
+                if (ke.getKeyCode() == KeyEvent.VK_CONTROL + KeyEvent.VK_N) {
                 }
             }
         });
